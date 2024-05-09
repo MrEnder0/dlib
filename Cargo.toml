@@ -1,0 +1,7 @@
+[workspace]
+members = ["dlib-loader", "lib-example"]
+resolver = "2"
+
+[profile.release]
+strip = "debuginfo"
+lto = true
