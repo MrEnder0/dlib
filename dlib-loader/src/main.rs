@@ -60,7 +60,7 @@ impl eframe::App for MyApp {
 fn call_dynamic(file_path: String, func_name: String) -> Result<u32, Box<dyn std::error::Error>> {
     unsafe {
         let lib = libloading::Library::new(file_path)?;
-        let func: libloading::Symbol<unsafe extern fn(usize, usize) -> usize> = lib.get(func_name.as_bytes())?;
+        let func: libloading::Symbol<extern fn(usize, usize) -> usize> = lib.get(func_name.as_bytes())?;
         Ok(func(2, 2) as u32)
     }
 }
